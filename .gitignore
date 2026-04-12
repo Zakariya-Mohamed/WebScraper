@@ -1,0 +1,30 @@
+# Scraper output
+data/
+output/
+scraped/
+*.csv
+
+# Crawl state / cache
+cache/
+*.state
+*.checkpoint
+visited-urls/
+
+# JVM crash & thread dumps
+*.hprof
+hs_err_pid*.log
+
+# Secrets & config
+.env
+.env.*
+!.env.example
+secrets.properties
+credentials.properties
+
+# SQL / database
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+dump.sql
+schema-local.sql
