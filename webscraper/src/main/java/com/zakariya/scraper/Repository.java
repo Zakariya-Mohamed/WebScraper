@@ -20,6 +20,7 @@ class Repository {
      * @param data the object saved
      */
     public void save(ScrapedData data) {
+        storage.add(data);
     }
 
     /**
@@ -29,7 +30,9 @@ class Repository {
      * @return data the ScrapedData from the url
      */
     public ScrapedData findById(String url) {
-        ScrapedData data = new ScrapedData("title", "content", "url", LocalDateTime.now());
-        return data;
+        for (ScrapedData s : storage) {
+
+        }
+
     }
 }
