@@ -9,6 +9,8 @@ import java.util.List;
 
 class Repository {
 
+    ScrapedData s;
+    ScrapedData data;
     /**
      * List of ScrapedData objects
      */
@@ -31,8 +33,14 @@ class Repository {
      */
     public ScrapedData findById(String url) {
         for (ScrapedData s : storage) {
-
+            if (s.getUrl() == url) {
+                return s;
+            } else {
+                System.out.println("The url was not found");
+            }
         }
+
+        return s;
 
     }
 }
