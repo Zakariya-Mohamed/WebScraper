@@ -11,17 +11,18 @@ class Repository {
 
     ScrapedData s;
     ScrapedData data;
+
     /**
      * List of ScrapedData objects
      */
-    private List<ScrapedData> storage;
+    private static List<ScrapedData> storage;
 
     /**
      * Saves ScrapedData object
      * 
      * @param data the object saved
      */
-    public void save(ScrapedData data) {
+    public static void save(ScrapedData data) {
         storage.add(data);
     }
 
