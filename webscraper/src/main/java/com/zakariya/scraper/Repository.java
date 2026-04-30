@@ -1,6 +1,6 @@
 package com.zakariya.scraper;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,21 +9,24 @@ import java.util.List;
 
 class Repository {
 
-    ScrapedData s;
-    ScrapedData data;
-
     /**
      * List of ScrapedData objects
      */
-    private static List<ScrapedData> storage;
+    private final List<ScrapedData> storage = new ArrayList<>();
 
     /**
      * Saves ScrapedData object
      * 
+     * @throws IllegalArgumentException if data is null
      * @param data the object saved
      */
-    public static void save(ScrapedData data) {
-        storage.add(data);
+    public void save(ScrapedData data) {
+        if (data == null) {
+            throw new IllegalArgumentException("data cannot be null.");
+        }
+        if (data != null) {
+            storage.add(data);
+        }
     }
 
     /**
@@ -34,14 +37,20 @@ class Repository {
      */
     public ScrapedData findById(String url) {
         for (ScrapedData s : storage) {
-            if (s.getUrl() == url) {
+            if (s.getUrl().equals(url)) {
                 return s;
-            } else {
-                System.out.println("The url was not found");
             }
         }
 
-        return s;
+        return null;
+    }
 
+    /**
+     * Returns the size of the List storage, essentially a getter
+     * 
+     * @return storage size
+     */
+    public int count() {
+        return storage.size();
     }
 }
