@@ -19,7 +19,10 @@ jobs:
           java-version: "21"
           cache: "maven"
 
-      - name: Build and run tests
+      - name: Compile
         working-directory: webscraper
         run: mvn -B clean compile
+
+      - name: Run tests
+        working-directory: webscraper
         run: mvn -B test
