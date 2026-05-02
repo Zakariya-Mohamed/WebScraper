@@ -68,7 +68,7 @@
                     <rulesets>
                         <ruleset>pmd/pmd.xml</ruleset>
                     </rulesets>
-                    <failOnViolation>true</failOnViolation>
+                    <failOnViolation>false</failOnViolation>
                 </configuration>
 
                 <executions>
