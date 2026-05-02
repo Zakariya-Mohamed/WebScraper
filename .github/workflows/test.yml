@@ -1,9 +1,12 @@
+name: Java CI
+
 on:
   push:
   pull_request:
 
 jobs:
-  test:
+  build:
+    name: Maven CI
     runs-on: ubuntu-latest
 
     steps:
@@ -13,10 +16,10 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
-          distribution: "temurin"
-          java-version: "21"
-          cache: "maven"
+          distribution: temurin
+          java-version: 21
+          cache: maven
 
       - name: Build and test
         working-directory: webscraper
-        run: mvn -B clean test
+        run: mvn -B clean verify
