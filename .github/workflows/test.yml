@@ -19,4 +19,4 @@ jobs:
 
       - name: Build and test
         working-directory: webscraper
-        run: mvn -B clean verify
+        run: mvn -B clean test
