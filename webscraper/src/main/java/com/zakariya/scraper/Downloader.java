@@ -1,5 +1,7 @@
 package com.zakariya.scraper;
 
+// import java.io.FileNotFoundException;
+
 /**
  * Fetches url from website and downloads raw html
  */
