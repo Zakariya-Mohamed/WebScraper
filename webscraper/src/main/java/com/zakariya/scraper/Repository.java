@@ -24,9 +24,7 @@ class Repository {
         if (data == null) {
             throw new IllegalArgumentException("data cannot be null.");
         }
-        if (data != null) {
-            storage.add(data);
-        }
+        storage.add(data);
     }
 
     /**

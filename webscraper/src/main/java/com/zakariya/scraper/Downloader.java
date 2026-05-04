@@ -6,7 +6,7 @@ package com.zakariya.scraper;
 
 class Downloader {
 
-    public String userAgent;
+    // public String userAgent;
 
     /**
      * Takes url from website and returns raw html in the form of a String
