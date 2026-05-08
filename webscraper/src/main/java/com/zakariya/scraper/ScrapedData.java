@@ -14,7 +14,7 @@ class ScrapedData {
     private String url;
     private LocalDateTime capturedAt;
 
-    public ScrapedData(String title, String content, String url, LocalDateTime capturedAt) {
+    public ScrapedData(final String title, final String content, final String url, final LocalDateTime capturedAt) {
         this.title = title;
         this.content = content;
         this.url = url;
@@ -37,19 +37,19 @@ class ScrapedData {
         return this.capturedAt;
     }
 
-    public void setTitle(String newTitle) {
+    public void setTitle(final String newTitle) {
         this.title = newTitle;
     }
 
-    public void setContent(String newContent) {
+    public void setContent(final String newContent) {
         this.content = newContent;
     }
 
-    public void setUrl(String newUrl) {
+    public void setUrl(final String newUrl) {
         this.url = newUrl;
     }
 
-    public void setCapturedAt(LocalDateTime newCapturedAt) {
+    public void setCapturedAt(final LocalDateTime newCapturedAt) {
         this.capturedAt = newCapturedAt;
     }
 

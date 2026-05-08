@@ -1,7 +1,7 @@
 package com.zakariya.scraper;
 
 import java.time.LocalDateTime;
-import java.util.List;
+// import java.util.List;
 /*
  * Parses raw html from the website, passes through to Scraped Data object
  */
@@ -11,7 +11,11 @@ class Parser {
     /**
      * String List of links
      */
-    private List<String> links;
+    // private List<String> links;
+
+    // Constructor
+    public Parser() {
+    }
 
     /**
      * parses the raw html of the website for the desired information
@@ -20,11 +24,10 @@ class Parser {
      * @return data the scraped data
      */
     public ScrapedData parse(String html) {
-        ScrapedData data = new ScrapedData("title", "content", "url", LocalDateTime.now());
-        return data;
+        return new ScrapedData("title", "content", "url", LocalDateTime.now());
     }
 
-    private List<String> extractLinks(String html) {
-        return links;
-    }
+    // private List<String> extractLinks(String html) {
+    // return links;
+    // }
 }

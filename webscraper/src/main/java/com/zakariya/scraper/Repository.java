@@ -14,6 +14,9 @@ class Repository {
      */
     private final List<ScrapedData> storage = new ArrayList<>();
 
+    public Repository() {
+    }
+
     /**
      * Saves ScrapedData object
      * 
@@ -31,7 +34,7 @@ class Repository {
      * Finds ScrapedData object given the url
      * 
      * @param url the url of the information
-     * @return data the ScrapedData from the url
+     * @return s the ScrapedData from the url
      */
     public ScrapedData findById(String url) {
         for (ScrapedData s : storage) {
