@@ -14,13 +14,16 @@ class Repository {
      */
     private final List<ScrapedData> storage = new ArrayList<>();
 
+    public Repository() {
+    }
+
     /**
      * Saves ScrapedData object
      * 
      * @throws IllegalArgumentException if data is null
      * @param data the object saved
      */
-    public void save(ScrapedData data) {
+    public void save(final ScrapedData data) {
         if (data == null) {
             throw new IllegalArgumentException("data cannot be null.");
         }
@@ -31,16 +34,19 @@ class Repository {
      * Finds ScrapedData object given the url
      * 
      * @param url the url of the information
-     * @return data the ScrapedData from the url
+     * @return s the ScrapedData from the url
      */
-    public ScrapedData findById(String url) {
-        for (ScrapedData s : storage) {
+    public ScrapedData findById(final String url) {
+        ScrapedData result = null;
+
+        for (final ScrapedData s : storage) {
             if (s.getUrl().equals(url)) {
-                return s;
+                result = s;
+                break;
             }
         }
 
-        return null;
+        return result;
     }
 
     /**

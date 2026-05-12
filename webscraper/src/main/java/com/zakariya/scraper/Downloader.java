@@ -1,12 +1,18 @@
 package com.zakariya.scraper;
 
+// import java.io.FileNotFoundException;
+
 /**
  * Fetches url from website and downloads raw html
  */
 
 class Downloader {
 
-    // public String userAgent;
+    /// public String userAgent;
+
+    // Constructor
+    public Downloader() {
+    }
 
     /**
      * Takes url from website and returns raw html in the form of a String

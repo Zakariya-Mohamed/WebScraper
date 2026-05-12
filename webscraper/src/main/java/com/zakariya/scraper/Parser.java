@@ -13,6 +13,10 @@ class Parser {
      */
     // private List<String> links;
 
+    // Constructor
+    public Parser() {
+    }
+
     /**
      * parses the raw html of the website for the desired information
      * 
@@ -20,8 +24,7 @@ class Parser {
      * @return data the scraped data
      */
     public ScrapedData parse(String html) {
-        ScrapedData data = new ScrapedData("title", "content", "url", LocalDateTime.now());
-        return data;
+        return new ScrapedData("title", "content", "url", LocalDateTime.now());
     }
 
     // private List<String> extractLinks(String html) {
