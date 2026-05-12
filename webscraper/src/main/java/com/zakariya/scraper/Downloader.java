@@ -8,7 +8,7 @@ package com.zakariya.scraper;
 
 class Downloader {
 
-    public String userAgent;
+    /// public String userAgent;
 
     // Constructor
     public Downloader() {
