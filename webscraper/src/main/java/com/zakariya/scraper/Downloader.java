@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 class Downloader {
 
+    @SuppressWarnings("PMD.FieldNamingConventions")
     private static final Logger log = LoggerFactory.getLogger(Downloader.class);
     /// public String userAgent;
 
