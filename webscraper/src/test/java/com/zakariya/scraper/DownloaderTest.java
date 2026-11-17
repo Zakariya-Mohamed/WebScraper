@@ -2,10 +2,12 @@ package com.zakariya.scraper;
 
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
-
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class DownloaderTest {
 
@@ -36,12 +38,14 @@ class DownloaderTest {
 
         mockWebServer.enqueue(new MockResponse()
                 .setResponseCode(200)
+                .addHeader("Content-Type", "text/html; charset=utf-8")
                 .setBody(mockHtml));
 
         String url = mockWebServer.url("/page1").toString();
         String result = downloader.download(url);
 
-        assertEquals("0", result);
+        assertTrue(result.contains("product_pod"));
+        assertTrue(result.contains("A Light in the Attic"));
     }
 
     // STEP 2: BOUNDARY CASE (Empty elements)
@@ -51,23 +55,24 @@ class DownloaderTest {
 
         mockWebServer.enqueue(new MockResponse()
                 .setResponseCode(200)
+                .addHeader("Content-Type", "text/html; charset=utf-8")
                 .setBody(emptyHtml));
 
         String url = mockWebServer.url("/empty").toString();
         String result = downloader.download(url);
 
-        assertEquals("0", result);
+        assertTrue(result.contains("No Books Here"));
     }
 
-    // STEP 4: DEPENDENCY FAILURE (Server Error 500)
+    // STEP 3: DEPENDENCY FAILURE (Server Error 500)
     @Test
-    void download_serverError_catchesIOExceptionAndReturnsZero() {
+    void download_serverError_catchesIOExceptionAndReturnsEmptyString() {
         mockWebServer.enqueue(new MockResponse().setResponseCode(500));
 
         String url = mockWebServer.url("/error").toString();
         String result = downloader.download(url);
 
-        // Confirms exception was caught in try/catch block
-        assertEquals("0", result);
+        // Confirms exception was caught in try/catch block and returned empty string
+        assertEquals("", result);
     }
 }
